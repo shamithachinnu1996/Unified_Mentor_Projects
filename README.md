@@ -199,6 +199,6 @@ function calculate() {
 
 **Shamitha M**  
 *shamithachinnu1996@gmail.com*  
-*GitHub:* 
+*GitHub:https://github.com/shamithachinnu1996/Unified_Mentor_Projects/tree/Calculator*
 
 ---
