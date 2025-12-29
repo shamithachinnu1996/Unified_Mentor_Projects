@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <header class="main-header">
+        <h1>🌱 Soil Farming Agent</h1>
+    <p>Smart Agriculture Information System</p>
+  </header>
+
+  <section id="auth-section" class="card">
+    <h2 id="auth-title">User Login</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <div class="btn-group">
+      <button onclick="login()">Login</button>
+      <button onclick="register()" class="secondary">Register</button>
+    </div>
+    <p id="admin-toggle" onclick="toggleAdmin()">Switch to Admin Login</p>
+  </section>
+
+  <section id="admin-dashboard" class="dashboard" style="display:none;">
+    <h2>Admin Panel</h2>
+    <button onclick="logout()" class="btn-logout">Logout</button>
+    <div class="card">
+        <h3>Post Soil Details</h3>
+        <input id="soil-name" placeholder="Soil Name (e.g., Silt Soils)">
+        <textarea id="soil-traits" placeholder="Traits (e.g., Fine particles)"></textarea>
+        <input id="best-crops" placeholder="Best Crops">
+        <button onclick="saveSoil()">Save Soil</button>
+    </div>
+    <div class="card">
+        <h3>Post Distributor Details</h3>
+        <input id="dist-name" placeholder="Distributor Name">
+        <input id="dist-contact-info" placeholder="Contact Info">
+        <input id="dist-seeds" placeholder="Seeds Available">
+        <button onclick="saveDistributor()">Save Distributor</button>
+    </div>
+  </section>
+
+  <section id="user-dashboard" class="dashboard" style="display:none;">
+    <div class="header-row">
+        <h2>Farmer Portal</h2>
+        <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="searchSoils()" placeholder="Search for soil types (e.g. Red, Sandy)...">
+    </div>
+    
+
+    <div class="info-grid">
+        <div class="info-block">
+            <h3>Soil Information</h3>
+            <div id="soil-list">
+                <h3>sandy soils</h3>
+                <h3>Red soils</h3>
+                <h3>silt soils</h3>
+            </div> 
+        </div>
+        <div class="info-block">
+            <h3>Verified Distributors</h3>
+            <div id="dist-list"></div> 
+        </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
