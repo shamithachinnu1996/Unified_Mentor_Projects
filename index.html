@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Teacher Booking Appointment</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <h1>Student-Teacher Appointment Booking</h1>
+
+        <section id="auth-view" class="view active">
+            <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="loginUser()">Login</button>
+                <p>New Student? <a href="#" onclick="showView('student-register-view')">Register</a></p>
+            
+            <hr>
+
+            <h3>Admin: Setup Specific Users</h3>
+
+            <div class="admin-buttons">
+                <button onclick="registerLakshmi()">Add Lakshmi</button>
+                <button onclick="registerKrishna()">Add Krishna</button>
+                <button onclick="registerNitha()">Add Nitha</button>
+                <button onclick="registerSharma()">Add Sharma</button>
+            </div>
+        </section>
+
+        <section id="student-register-view" class="view">
+            <h2>Manual Registration</h2>
+                <input type="text" id="reg-name" placeholder="Full Name">
+                <input type="email" id="reg-email" placeholder="Email">
+                <input type="password" id="reg-password" placeholder="Password">
+            <select id="reg-role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+                <input type="text" id="reg-subject" placeholder="Subject (If Teacher)">
+                <button onclick="handleManualRegistration()">Register</button>
+                <p><a href="#" onclick="showView('auth-view')">← Back to Login</a></p>
+        </section>
+        
+        <section id="teacher-dashboard-view" class="view">
+            <header>
+                <h2>Teacher: <span id="teacher-name"></span></h2>
+                <button onclick="logoutUser()">Logout</button>
+            </header>
+
+            <h3>Add Availability</h3>
+                <input type="date" id="slot-date">
+                <input type="time" id="slot-start-time">
+                <input type="time" id="slot-end-time">
+                <button onclick="addAvailability()">Add Slot</button>
+            
+            <h3>My Appointments</h3>
+                <div id="teacher-appointments-list">No appointments yet.</div>
+        </section>
+
+        <section id="student-dashboard-view" class="view">
+            <header>
+                <h2>Student: <span id="student-name"></span></h2>
+                <button onclick="logoutUser()">Logout</button>
+            </header>
+            <h3>Search Teacher</h3>
+                <input type="text" id="search-subject" placeholder="Enter Subject">
+                <button onclick="searchTeachers()">Search</button>
+                <div id="teacher-search-results"></div>
+
+            <h3>My Bookings</h3>
+                <div id="student-bookings-list">No bookings yet.</div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

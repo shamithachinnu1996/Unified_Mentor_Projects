@@ -1,0 +1,168 @@
+
+:root {
+    --primary-color: #3b5998; /* Dark Blue */
+    --secondary-color: #f0f4f7;
+    --accent-color: #2ecc71; /* Green for success/approval */
+    --text-dark: #333;
+    --card-bg: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.app-container {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+h2 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.view {
+    display: none; /* Hidden by default, JS toggles 'active' */
+    text-align: left;
+    padding: 10px 0;
+}
+
+.view.active {
+    display: block;
+}
+
+/* Header and Buttons */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+header button {
+    background-color: #e74c3c; /* Red for Logout */
+}
+header button:hover {
+    background-color: #c0392b;
+}
+
+/* Form and Input Styling */
+input, select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #294a80;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* List/Card Styling */
+.teacher-card, .slot-card, .appointment-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-card button {
+    margin-top: 10px;
+    width: fit-content;
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+.appointment-card button:last-child {
+    background-color: #f39c12; /* Orange for Cancel */
+}
+.appointment-card button:last-child:hover {
+    background-color: #e67e22;
+}
+
+/* Schedule Control Alignment */
+#schedule-controls input {
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+#schedule-controls button {
+    margin-top: -10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
