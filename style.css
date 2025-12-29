@@ -1,0 +1,164 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --primary-blue: #1a5f7a;
+    --secondary-blue: #3498db;
+    --bg-gray: #f4f7f6;
+    --card-white: #ffffff;
+    --text-dark: #2c3e50;
+    --danger-red: #e74c3c;
+    --success-green: #2ecc71;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-gray);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- 2. Layout Containers --- */
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--primary-blue);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+/* --- 3. View Management --- */
+.view {
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 4. Card UI Components --- */
+.card {
+    background: var(--card-white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.profile-card {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Mobile Responsive Grid */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+}
+
+/* --- 5. Form Elements --- */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #13495e;
+}
+
+button.secondary {
+    background-color: var(--secondary-blue);
+}
+
+button.danger {
+    background-color: var(--danger-red);
+}
+
+.danger-small {
+    width: auto;
+    padding: 8px 15px;
+    background-color: #c0392b;
+    font-size: 0.8rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* --- 6. Document List Items --- */
+#doc-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.doc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.doc-item:last-child {
+    border-bottom: none;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.actions button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}

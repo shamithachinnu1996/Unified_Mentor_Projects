@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureGov Vault - Mini's Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🛡️ SecureGov Vault</h1>
+            <p>Digital Identity & Family Sharing</p>
+        </header>
+
+        <section id="auth-view" class="view">
+            <div class="card">
+                <h2>Citizen Registration</h2>
+                <input type="email" id="email" placeholder="Enter email">
+                <input type="password" id="password" placeholder="Enter password">
+                <input type="text" id="aadhaar" placeholder="Enter Aadhaar Number">
+                <div class="btn-group">
+                    <button onclick="handleAuth('login')">Login</button>
+                    <button onclick="handleAuth('register')" class="secondary">Register</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard-view" class="view" style="display:none;">
+            <div class="profile-card">
+                <h3>👤 My Profile</h3>
+                <div id="user-info">Loading Profile...</div>
+                <button onclick="logout()" class="danger-small">Logout</button>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📤 Upload to Vault</h3>
+                    <input type="text" id="doc-name" placeholder="Document Name (e.g. PAN Card)">
+                    <select id="doc-category">
+                        <option value="Identity">Identity</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                    </select>
+                    <input type="file" id="file-input">
+                    <button onclick="uploadDoc()">Secure Document</button>
+                </div>
+
+                <div class="card">
+                    <h3>📋 My Vault</h3>
+                    <div id="doc-list"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
