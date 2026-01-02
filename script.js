@@ -105,7 +105,35 @@ async function seedData() {
     } catch (e) { alert("Upload Failed: " + e.message); }
 }
 
+async function register() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!email || !password) {
+        alert("Please enter email and password");
+        return;
+    }
+
+    try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        // Optional: save user info in database
+        await db.ref("users/" + user.uid).set({
+            email: email,
+            role: "farmer",
+            createdAt: new Date().toISOString()
+        });
+
+        alert("✅ Registration successful! You can now login.");
+    } catch (error) {
+        alert("Registration Error: " + error.message);
+    }
+}
+
+
 function logout() { auth.signOut().then(() => location.reload()); }
+
 
 // This function will physically put the data into your Firebase URL
 async function pushInitialData() {
@@ -127,4 +155,4 @@ async function pushInitialData() {
 
     alert("✅ Data successfully uploaded to your Firebase database!");
 }
-pushInitialData();
+pushInitialData()

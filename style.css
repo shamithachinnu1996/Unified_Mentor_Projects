@@ -1,11 +1,35 @@
-
+:root {
+    --primary: #4CAF50;
+    --secondary: #2d5a27;
+    --danger: #d9534f;
+    --bg: #f0f4f1;
+}
     body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f4f1;
+    background-color: #a6f0ab;
     display: flex;
     justify-content: center;
     padding: 20px;
+     background: var(--bg);
+     color: #333;
 }
+
+
+/* Grid layout */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Flex header */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 
 .container {
     width: 100%;
@@ -65,10 +89,22 @@ button.logout { background-color: #d9534f; }
     margin-top: 15px;
     text-decoration: underline;
 }
+.card {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 
 
 
 
-
+/* Responsive */
+@media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    button { width: 100%; margin-top: 8px; }
+}
 
